@@ -1,9 +1,8 @@
 "use client";
-import { Button, Callout } from "@radix-ui/themes";
-import { TextField, Text } from "@radix-ui/themes";
+import { Button, Callout, TextField, Text } from "@radix-ui/themes";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
-import { useForm, Controller, SubmitHandler, Resolver } from "react-hook-form";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -22,7 +21,6 @@ const NewIssuePage = () => {
     register,
     formState: { errors },
   } = useForm<IssueForm>({ resolver: zodResolver(createIssueSchema) });
-
   const onSubmit: SubmitHandler<IssueForm> = async (data) => {
     try {
       await axios.post("/api/issues", data);
@@ -43,7 +41,7 @@ const NewIssuePage = () => {
           <TextField.Input placeholder="Title" {...register("title")} />
         </TextField.Root>
         {errors.title && (
-          <Text color="red" as="p">
+          <Text  color="red" as="p" size="2">
             {errors.title.message}
           </Text>
         )}
@@ -55,8 +53,8 @@ const NewIssuePage = () => {
           )}
         />
         {errors.description && (
-          <Text color="red" as="p">
-            {errors.description.message}
+          <Text  color="red" as="p" size="2">
+            {errors?.description.message}
           </Text>
         )}
 
