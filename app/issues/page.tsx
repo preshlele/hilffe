@@ -31,7 +31,7 @@ const IssuePage = () => {
       <Text as="label" size="5" className="font-bold">All Issues</Text>
       <ul>
         {issues.map((issue) => (
-          <li key={issue.id}>{issue.title}</li>
+          <li className="cursor-pointer" key={issue.id}>{issue.title}</li>
         ))}
       </ul>
       <Button>

@@ -1,5 +1,5 @@
 "use client";
-import { Button, Callout, TextField, Text } from "@radix-ui/themes";
+import { Button, Callout, TextField, Text, Heading } from "@radix-ui/themes";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
@@ -36,12 +36,18 @@ const NewIssuePage = () => {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-      <form onSubmit={handleSubmit(onSubmit)} className=" max-w-xl space-y-3">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className=" max-w-xl space-y-3 mx-auto relative"
+      >
+        <Heading size="8" align="center">
+          Create Your Ticket
+        </Heading>
         <TextField.Root>
           <TextField.Input placeholder="Title" {...register("title")} />
         </TextField.Root>
         {errors.title && (
-          <Text  color="red" as="p" size="2">
+          <Text color="red" as="p" size="2">
             {errors.title.message}
           </Text>
         )}
@@ -53,12 +59,14 @@ const NewIssuePage = () => {
           )}
         />
         {errors.description && (
-          <Text  color="red" as="p" size="2">
+          <Text color="red" as="p" size="2">
             {errors?.description.message}
           </Text>
         )}
 
-        <Button type="submit">Submit New Issue</Button>
+        <Button type="submit" className="absolute w-full">
+          Submit New Issue
+        </Button>
       </form>
     </div>
   );
