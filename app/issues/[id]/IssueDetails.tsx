@@ -8,7 +8,7 @@ const IssueDetails = ({issue} : {issue: Issue}) => {
     <>
       <Heading>{issue.title}</Heading>
       <Text>{issue.createdAt.toDateString()}</Text>
-      <Card className="prose max-w-full" mt="4">
+      <Card className="max-w-full" mt="4">
         <Markdown>{issue.description}</Markdown>
       </Card>
     </>
