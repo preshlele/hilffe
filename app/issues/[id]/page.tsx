@@ -1,8 +1,10 @@
+
 import prisma from "@/prisma/client";
 import { Box } from "@radix-ui/themes";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
 import IssueDetails from "./IssueDetails";
+import DeleteIssueButton from "./DeleteIssueButton";
 
 interface Props {
   params: { id: string };
@@ -17,9 +19,15 @@ const page = async ({ params }: Props) => {
 
   if (!issue) notFound();
   return (
+    <div className="relative lg:px-[24rem]">
     <Box className="md:col-span-4">
       <IssueDetails issue={issue} />
     </Box>
+    <Box className="absolute right-[24rem]">
+      <DeleteIssueButton issueId={issue.id} />
+    </Box>
+    </div>
+    
   );
 };
 
