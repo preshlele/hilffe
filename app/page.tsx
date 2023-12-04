@@ -1,16 +1,23 @@
-"use client";
+import { cache } from "react";
+import { IssueChart } from "./Components/IssueChart";
+import IssuesBadge from "./Components/IssuesBadge";
+import LatestIssues from "./Components/LatestIssues";
 
-import Image from "next/image";
-
-export default function Home() {
-  
+export default async function Home() {
   return (
-    <div>
-      Welcome to hilfe!
-      <div>
-        Statistics
-        <h1>Chart</h1>
-        
+    <div className="flex mx-24">
+      <div className="mx-8">
+        <div className="flex flex-col">
+          <IssuesBadge />
+          <div className=" mt-4 border rounded-md  h-[24rem] w-[38rem] ">
+            <IssueChart />
+          </div>
+        </div>
+      </div>
+
+      {/* Right side */}
+      <div className="flex-1">
+        <LatestIssues />
       </div>
     </div>
   );

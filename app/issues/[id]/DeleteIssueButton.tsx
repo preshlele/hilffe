@@ -58,7 +58,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
         </AlertDialog.Content>
       </AlertDialog.Portal>
     </AlertDialog.Root><AlertDialog.Root open={error}>
-        <AlertDialog.Content>
+        {/* <AlertDialog.Content>
           <AlertDialog.Title>Error</AlertDialog.Title>
           <AlertDialog.Description>
             This issue could not be deleted.
@@ -71,7 +71,7 @@ const DeleteIssueButton = ({ issueId }: { issueId: number }) => {
           >
             OK
           </Button>
-        </AlertDialog.Content>
+        </AlertDialog.Content> */}
       </AlertDialog.Root></>
   );
 };

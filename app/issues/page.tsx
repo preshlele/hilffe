@@ -2,21 +2,19 @@
 
 import { Button, Text } from "@radix-ui/themes";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import useStore from "../store";
 
-type Issue ={
-  id: number;
-  title: string;
-}
+
 
 const IssuePage = () => {
-  const [issues, setIssues] = useState<Issue[]>([]);
+const {issues, setIssues} = useStore() // using zustand to store the issues
+
   const fetchIssues = async () => {
     try {
-      const response = await axios.get("/api/issues");
-      // console.log(response.data);
-      setIssues(response.data);
+      const response = await fetch("/api/issues");
+      const data = await response.json(); 
+      setIssues(data);
     } catch (error) {
       console.error("Error fetching issues:", error);
     }
