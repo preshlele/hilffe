@@ -16,7 +16,7 @@ type IssuesBadgeProps = {
 
 const generateBadges = (badgeData : BadgeData[]) => {
   return badgeData.map(({ color, children, value }, index) => (
-    <Badge key={index} className="flex flex-col gap-5 w-[9rem] h-[5rem]" color={color}>
+    <Badge key={index} className="flex flex-col gap-5 w-[9rem] h-[5rem]" color="green">
       <p className="pt-4">{children}</p>
       {value !== undefined && <span className="text-lg">{value}</span>}
     </Badge>
