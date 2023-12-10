@@ -2,6 +2,7 @@ import{ create }from 'zustand'
 
 
 type Issue = {
+  [x: string]: string | number | Date;
   id: number;
   title: string;
 };

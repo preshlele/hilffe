@@ -19,7 +19,7 @@ const LatestIssues = () => {
             <Table.Row key={index}>
               <Table.Cell>{issue.title}</Table.Cell>
               <Table.Cell>
-                {new Date(issue.createdAt).toDateString()}
+                {new Date(issue?.createdAt).toDateString()}
               </Table.Cell>
             </Table.Row>
           ))}
